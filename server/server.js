@@ -4,11 +4,22 @@ import chalk from 'chalk'
 import userRouter from './routers/user.router.js'
 import officerRouter from './routers/officer.router.js'
 import staffRouter from './routers/staff.router.js'
+import cors from 'cors'
 import env from 'dotenv'
+import cookieParser from 'cookie-parser'
+
 env.config();
 
 const app = express();
 
+const allowedWeb = {
+    origin: 'http://localhost:3000',
+    methods: "PUT, GET, POST, PATCH, DELETE, HEAD",
+    credentials: true
+}
+app.use(cors(allowedWeb));
+app.use(express.json());
+app.use(cookieParser());
 app.use('/api/user', userRouter);
 app.use('/api/officer', officerRouter);
 app.use('/api/staff', staffRouter);

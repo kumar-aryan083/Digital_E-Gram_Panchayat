@@ -1,3 +1,81 @@
-.register-first-div{
-    padding-top: 100px;
+.full{
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(231, 227, 223);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 40px;
+}
+
+.card{
+    background-color: rgb(255, 255, 255);
+    padding: 20px 40px;
+    width: 800px;
+}
+.card>form>textarea{
+    width: 100%;
+    margin-top:5px;
+    padding: 5px 10px;
+}
+.row{
+    display: flex;
+    padding: 10px 0px;
+    justify-content: space-between;
+}
+.col{
+    width: 45%;
+    display: flex;
+    gap: 20px;
+}
+.col>input{
+    display: flex;
+    flex-grow: 100;
+}
+.hori-rule{
+    margin: 20px 0;
+}
+.col>input{
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+}
+.btn>input{
+    background-color: transparent;
+    border: 0;
+    position: relative;
+    z-index: 99;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+}
+.btn{
+    display: flex;
+    margin: 10px auto;
+    padding: 7px 30px;
+    background-color: red;
+    font-weight: 600;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    position: relative;
+    width: fit-content;
+    overflow: hidden;
+}
+.btn::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    background-color: green;
+    transition: all 0.3s ease;
+}
+.btn:hover::after{
+    left: 0%;
+}
+
+.exists>a{
+    text-decoration: underline;
+    color: blue;
 }

@@ -24,16 +24,16 @@ const officerSchema = new mongoose.Schema({
         required: true
     },
     address: String,
-    applicationIds: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Application',
-        required: true
-    }],
-    serviceIds: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Service',
-        required: true
-    }]
+    // applicationIds: [{
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Application',
+    //     required: true
+    // }],
+    // serviceIds: [{
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Service',
+    //     required: true
+    // }]
 }, {timestamps:true});
 
-export default module.exports("Officer", officerSchema);
+export default mongoose.model("Officer", officerSchema);
