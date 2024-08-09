@@ -1,10 +1,10 @@
 import React from 'react';
 import RegistrationForm from '../../Components/Common/RegistrationForm';
 
-const Register = () => {
+const Register = ({position}) => {
   return (
     <>
-        <RegistrationForm />    
+        <RegistrationForm position={position}/>    
     </>
   );
 }

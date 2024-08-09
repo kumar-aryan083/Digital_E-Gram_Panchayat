@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../Styles/RegisterForm.css'
 import { Link, useNavigate } from 'react-router-dom';
 
-const RegistrationForm = () => {
+const RegistrationForm = ({position}) => {
   const [formData, setFormData] = useState({
     name:"",
     username:"",
@@ -29,7 +29,7 @@ const RegistrationForm = () => {
       // console.log(formData);
       // console.log(JSON.stringify(formData));
       const {cnfPassword, ...others} = formData;
-      const res = await fetch("http://localhost:8800/api/officer/register", {
+      const res = await fetch(`http://localhost:8800/api/${position}/register`, {
         method: "POST",
         headers:{
           'Content-Type': 'application/json'
@@ -40,7 +40,7 @@ const RegistrationForm = () => {
         alert("successful");
         const officerData = await res.json();
         localStorage.setItem("officerData", JSON.stringify(officerData));
-        navigate('/login');
+        navigate(`/${position}/login`);
       }else{
         alert("unsuccessful")
       }
@@ -92,7 +92,7 @@ const RegistrationForm = () => {
           </div>
         </form>
         <div className="exists">
-          Already have an account? <Link to='/login'>Login here</Link>
+          Already have an account? <Link to={`/${position}/login`}>Login here</Link>
         </div>
       </div>
     </div>

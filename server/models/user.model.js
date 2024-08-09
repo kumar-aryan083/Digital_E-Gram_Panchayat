@@ -1,6 +1,8 @@
 import mongoose from 'mongoose'
 
-const userSchema = new mongoose.Schema({
+const Schema = mongoose.Schema;
+
+const userSchema = new Schema({
     name: {
         type: String,
         required: true
@@ -23,7 +25,15 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    address: String
+    address: String,
+    position: {
+        type: String,
+        default: "user"
+    },
+    applicationIds: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Application'
+    }]
 }, {timestamps:true});
 
-export default module.exports("User", userSchema);
+export default mongoose.model("User", userSchema);

@@ -1,10 +1,10 @@
 import React from 'react';
 import LoginForm from '../../Components/Common/LoginForm';
 
-const Login = () => {
+const Login = ({position}) => {
   return (
     <div>
-        <LoginForm />
+        <LoginForm position={position}/>
     </div>
   );
 }

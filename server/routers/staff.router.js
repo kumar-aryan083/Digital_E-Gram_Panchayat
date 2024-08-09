@@ -3,8 +3,8 @@ import { login, register, updateApplication } from '../controller/staff.controll
 
 const router = express.Router();
 
-router.get('/register', register);
-router.get('/login', login);
-router.get('/update-application', updateApplication);
+router.post('/register', register);
+router.post('/login', login);
+router.put('/update-application', updateApplication);
 
 export default router;

@@ -1,6 +1,8 @@
 import mongoose from 'mongoose'
 
-const officerSchema = new mongoose.Schema({
+const Schema = mongoose.Schema;
+
+const officerSchema = new Schema({
     name: {
         type: String,
         required: true
@@ -24,16 +26,18 @@ const officerSchema = new mongoose.Schema({
         required: true
     },
     address: String,
-    // applicationIds: [{
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'Application',
-    //     required: true
-    // }],
-    // serviceIds: [{
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'Service',
-    //     required: true
-    // }]
+    position: {
+        type: String,
+        default: "officer"
+    },
+    applicationIds: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Application',
+    }],
+    serviceIds: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Service',
+    }]
 }, {timestamps:true});
 
 export default mongoose.model("Officer", officerSchema);

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../Styles/LoginForm.css'
 import { Link, useNavigate } from 'react-router-dom';
 
-const LoginForm = () => {
+const LoginForm = ({position}) => {
     const [loginData, setLoginData] = useState({
         username: "",
         password: ""
@@ -20,7 +20,7 @@ const LoginForm = () => {
     const handleSubmit = async(e)=>{
         e.preventDefault();
         // console.log(loginData);
-        const res = await fetch("http://localhost:8800/api/officer/login",{
+        const res = await fetch(`http://localhost:8800/api/${position}/login`,{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -58,7 +58,7 @@ const LoginForm = () => {
                         <input type="submit" value="Login"/>``
                     </div>
                 </form>
-                <div className="extra">Don't have an account? <Link to='/register'>Register here</Link></div>
+                <div className="extra">Don't have an account? <Link to={`/${position}/register`}>Register here</Link></div>
             </div>
         </div>
     </>

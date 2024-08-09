@@ -1,6 +1,8 @@
 import mongoose from 'mongoose'
 
-const serviceSchema = new mongoose.Schema({
+const Schema = mongoose.Schema;
+
+const serviceSchema = new Schema({
     title: {
         type: String,
         required: true
@@ -9,10 +11,10 @@ const serviceSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    vacancies:[{
-        type:String,
+    vacancies:{
+        type: Number,
         required: true,
-    }],
+    },
     officerId:{
         type: Schema.Types.ObjectId,
         ref: 'Officer',
@@ -20,4 +22,4 @@ const serviceSchema = new mongoose.Schema({
     },
 }, {timestamps:true});
 
-export default module.exports("Service", serviceSchema);
+export default mongoose.model("Service", serviceSchema);
